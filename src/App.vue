@@ -1,5 +1,7 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+
+  <h1>App Vue y Django</h1>
+
   <router-view></router-view>
 </template>
 
