@@ -3,9 +3,22 @@
 
     <router-link :to="{ name: 'list-category' }">Categorías</router-link>
 
-    <div v-for="c in tipes" :key="c.id">
-        <p>{{ c.title }}</p>
-    </div>
+<n-table :bordered="true" :single-line="false">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="t in tipes" :key="t.id">
+        <td>{{ t.title }}</td>
+        <td>
+            __
+        </td>
+      </tr>
+    </tbody>
+  </n-table>
 
 </template>
 <script>
