@@ -1,5 +1,5 @@
 <template>
-  <h1>Listado Categorías</h1>
+  <!-- <h1>Listado Categorías</h1> -->
 
   <router-link :to="{ name: 'list-type' }">Tipos</router-link>
 
