@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 
+import "./css/main.css"
+
 import axios from "axios"
 import naive from 'naive-ui'
 

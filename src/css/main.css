@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-table{
+    @apply table-fixed max-w-lg mt-2
+}

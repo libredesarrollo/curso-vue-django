@@ -1,9 +1,10 @@
 <template>
   <!-- <h1>Listado Categorías</h1> -->
 
-  <router-link :to="{ name: 'list-type' }">Tipos</router-link>
-
-  <n-table :bordered="true" :single-line="false">
+  <n-button type="primary">
+    <router-link :to="{ name: 'list-type' }">Tipos</router-link>
+  </n-button>
+  <n-table :bordered="true" :single-line="false" class="my-table">
     <thead>
       <tr>
         <th>Título</th>
@@ -13,9 +14,7 @@
     <tbody>
       <tr v-for="c in categories" :key="c.id">
         <td>{{ c.title }}</td>
-        <td>
-            __
-        </td>
+        <td>__</td>
       </tr>
     </tbody>
   </n-table>
