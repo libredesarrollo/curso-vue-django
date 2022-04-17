@@ -14,7 +14,14 @@
     <tbody>
       <tr v-for="c in categories" :key="c.id">
         <td>{{ c.title }}</td>
-        <td>__</td>
+        <td>
+          <n-button type="primary">
+            <router-link
+              :to="{ name: 'list-element', params: { type: 'c', id: c.id } }"
+              >Elementos</router-link
+            >
+          </n-button>
+        </td>
       </tr>
     </tbody>
   </n-table>

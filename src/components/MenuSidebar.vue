@@ -9,7 +9,21 @@ export default {
   name: "App",
   data() {
     return {
-      options: [],
+      options: [
+        {
+          label: () =>
+            h(
+              RouterLink,
+              {
+                to: {
+                  name: "list-element",
+                },
+              },
+              { default: () => "Elementos" }
+            ),
+          key: "list type",
+        },
+      ],
     };
   },
   mounted() {

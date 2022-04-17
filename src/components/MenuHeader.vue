@@ -1,5 +1,5 @@
 <template>
-  <n-menu  :options="options" mode="horizontal"> </n-menu>
+  <n-menu :options="options" mode="horizontal"> </n-menu>
 </template>
 
 <script>
@@ -9,7 +9,21 @@ export default {
   name: "App",
   data() {
     return {
-      options: [],
+      options: [
+        {
+          label: () =>
+            h(
+              RouterLink,
+              {
+                to: {
+                  name: "list-element",
+                },
+              },
+              { default: () => "Elementos" }
+            ),
+          key: "list type",
+        },
+      ],
     };
   },
   mounted() {

@@ -5,3 +5,7 @@
 .my-table{
     @apply table-fixed max-w-lg mt-2
 }
+
+/* .n-button--primary-type{
+    @apply bg-green-500 text-green-900
+} */
