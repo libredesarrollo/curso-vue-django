@@ -2,8 +2,9 @@
   <!-- <h1>Listado Categorías</h1> -->
 
   <n-button type="primary">
-    <router-link :to="{ name: 'list-type' }">Tipos</router-link>
+    <router-link :to="{ name: 'save-category' }">Crear</router-link>
   </n-button>
+
   <n-table :bordered="true" :single-line="false" class="my-table">
     <thead>
       <tr>
