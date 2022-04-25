@@ -1,6 +1,6 @@
 <template>
   <n-button type="primary">
-    <router-link :to="{ name: 'list-category' }">Categorías</router-link>
+    <router-link :to="{ name: 'save-type' }">Tipos</router-link>
   </n-button>
   <n-table :bordered="true" :single-line="false" class="my-table">
     <thead>
@@ -19,6 +19,10 @@
               >Elementos</router-link
             >
           </n-button>
+
+          <router-link :to="{ name: 'save-type', params: { id: t.id } }"
+            >Tipos</router-link
+          >
         </td>
       </tr>
     </tbody>

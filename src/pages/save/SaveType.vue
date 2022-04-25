@@ -32,7 +32,7 @@
 export default {
   data() {
     return {
-      category: "",
+      type: "",
       form: {
         title: "",
         url_clean: "",
@@ -47,34 +47,34 @@ export default {
   async mounted() {
     if (this.$route.params.id) {
       // obtener la categoria
-      await this.getCategory();
+      await this.getType();
       // init
-      this.initCategory();
+      this.initType();
     }
   },
 
   methods: {
-    async getCategory() {
-      this.category = await this.$axios.get(
-        "http://127.0.0.1:8000/api/category/" +
+    async getType() {
+      this.type = await this.$axios.get(
+        "http://127.0.0.1:8000/api/type/" +
           this.$route.params.id +
           "/?format=json"
       );
 
-      this.category = this.category.data;
+      this.type = this.type.data;
     },
 
-    initCategory() {
-      this.form.title = this.category.title;
-      this.form.url_clean = this.category.url_clean;
+    initType() {
+      this.form.title = this.type.title;
+      this.form.url_clean = this.type.url_clean;
     },
 
     submit() {
       this.cleanForm();
 
-      if (this.category == "")
+      if (this.type == "")
         return this.$axios
-          .post("http://127.0.0.1:8000/api/category/?format=json", this.form)
+          .post("http://127.0.0.1:8000/api/type/?format=json", this.form)
           .then((res) => {
             console.log(res.data);
           })
@@ -86,7 +86,7 @@ export default {
           });
 
           this.$axios
-          .put("http://127.0.0.1:8000/api/category/" +
+          .put("http://127.0.0.1:8000/api/type/" +
           this.$route.params.id +
           "/?format=json", this.form)
           .then((res) => {

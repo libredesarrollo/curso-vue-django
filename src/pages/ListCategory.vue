@@ -22,6 +22,10 @@
               >Elementos</router-link
             >
           </n-button>
+
+          <router-link :to="{ name: 'save-category', params: { id: c.id } }"
+            >Editar</router-link
+          >
         </td>
       </tr>
     </tbody>

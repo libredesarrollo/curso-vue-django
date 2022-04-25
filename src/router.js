@@ -7,6 +7,8 @@ import ListElement from "./pages/ListElement"
 import DetailElement from "./pages/detail/DetailElement"
 
 import SaveCategory from "./pages/save/SaveCategory"
+import SaveType from "./pages/save/SaveType"
+import SaveElement from "./pages/save/SaveElement"
 
 import BasePage from "./pages/BasePage"
 
@@ -50,8 +52,30 @@ const routes = [
         children: [
             {
                 name: 'save-category',
-                path: 'category/',
+                path: 'category/:id?',
                 component: SaveCategory
+            }
+        ]
+    },
+    {
+        path: '/save',
+        component: BasePage,
+        children: [
+            {
+                name: 'save-type',
+                path: 'type/:id?',
+                component: SaveType
+            }
+        ]
+    },
+    {
+        path: '/save',
+        component: BasePage,
+        children: [
+            {
+                name: 'save-element',
+                path: 'element/:id?',
+                component: SaveElement
             }
         ]
     }
