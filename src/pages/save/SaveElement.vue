@@ -29,12 +29,14 @@
       :feedback="errors.description"
       :validaiton-status="errors.description == '' ? 'success' : 'error'"
     >
-      <n-input
+      <!-- <n-input
         :status="errors.description == '' ? 'success' : 'error'"
         placeholder="Description"
         v-model:value="form.description"
         type="textarea"
-      />
+      /> -->
+
+      <ckeditor :editor="editor.editor" v-model="form.description"></ckeditor>
     </n-form-item>
     <n-form-item
       label="Price"
@@ -79,9 +81,14 @@
 </template>
 
 <script>
+import CKEditor from "@ckeditor/ckeditor5-build-classic";
+
 export default {
   data() {
     return {
+      editor: {
+        editor: CKEditor,
+      },
       categories_options: [],
       tipes_options: [],
       element: "",
@@ -111,8 +118,8 @@ export default {
       // init
       this.initElement();
     }
-    this.categories()
-    this.tipes()
+    this.categories();
+    this.tipes();
   },
 
   methods: {
@@ -139,11 +146,11 @@ export default {
       this.$axios
         .get("http://localhost:8000/api/category/all/?format=json")
         .then((res) => {
-          this.categories_options = res.data.map(c => {
+          this.categories_options = res.data.map((c) => {
             return {
               label: c.title,
-              value: c.id
-            }
+              value: c.id,
+            };
           });
         });
     },
@@ -151,18 +158,18 @@ export default {
       this.$axios
         .get("http://localhost:8000/api/type/all/?format=json")
         .then((res) => {
-          this.tipes_options = res.data.map(c => {
+          this.tipes_options = res.data.map((c) => {
             return {
               label: c.title,
-              value: c.id
-            }
+              value: c.id,
+            };
           });
         });
     },
 
     submit() {
       this.cleanForm();
-      
+
       if (this.element == "")
         return this.$axios
           .post("http://127.0.0.1:8000/api/element/?format=json", this.form)
@@ -170,7 +177,7 @@ export default {
             console.log(res.data);
           })
           .catch((error) => {
-            console.log(error.response.data)
+            console.log(error.response.data);
             if (error.response.data.title)
               this.errors.title = error.response.data.title[0];
             if (error.response.data.url_clean)
@@ -196,18 +203,18 @@ export default {
           console.log(res.data);
         })
         .catch((error) => {
-    if (error.response.data.title)
-              this.errors.title = error.response.data.title[0];
-            if (error.response.data.url_clean)
-              this.errors.url_clean = error.response.data.url_clean[0];
-            if (error.response.data.description)
-              this.errors.description = error.response.data.description[0];
-            if (error.response.data.price)
-              this.errors.price = error.response.data.price[0];
-            if (error.response.data.category_id)
-              this.errors.category_id = error.response.data.category_id[0];
-            if (error.response.data.type_id)
-              this.errors.type_id = error.response.data.type_id[0];
+          if (error.response.data.title)
+            this.errors.title = error.response.data.title[0];
+          if (error.response.data.url_clean)
+            this.errors.url_clean = error.response.data.url_clean[0];
+          if (error.response.data.description)
+            this.errors.description = error.response.data.description[0];
+          if (error.response.data.price)
+            this.errors.price = error.response.data.price[0];
+          if (error.response.data.category_id)
+            this.errors.category_id = error.response.data.category_id[0];
+          if (error.response.data.type_id)
+            this.errors.type_id = error.response.data.type_id[0];
         });
     },
 
