@@ -52,7 +52,14 @@ export default {
           ];
           res.data.results.forEach((t) => {
             optionType.push({
-              label: t.title,
+              label: () =>
+                h(
+                  RouterLink,
+                  {
+                    to: { name: 'list-element', params: { type: 't', id: t.id } },
+                  },
+                  { default: () => t.title }
+                ),
               key: "t " + t.id,
             });
           });
@@ -84,7 +91,14 @@ export default {
           ];
           res.data.results.forEach((c) => {
             optionCate.push({
-              label: c.title,
+              label: () =>
+                h(
+                  RouterLink,
+                  {
+                    to: { name: 'list-element', params: { type: 'c', id: c.id } },
+                  },
+                  { default: () => c.title }
+                ),
               key: "c " + c.id,
             });
           });
