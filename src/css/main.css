@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .my-table{
-    @apply table-fixed max-w-lg mt-2
+    @apply table-fixed mt-2
 }
 
 /* .n-button--primary-type{

@@ -28,7 +28,7 @@
             >
           </n-button>
 
-          <router-link :to="{ name: 'save-element', params: { id: e.id } }"
+          <router-link class="ml-2" :to="{ name: 'save-element', params: { id: e.id } }"
             >Editar</router-link
           >
         </td>

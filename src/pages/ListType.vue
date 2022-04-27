@@ -1,6 +1,6 @@
 <template>
   <n-button type="primary">
-    <router-link :to="{ name: 'save-type' }">Tipos</router-link>
+    <router-link :to="{ name: 'save-type' }">Crear</router-link>
   </n-button>
   <n-table :bordered="true" :single-line="false" class="my-table">
     <thead>
@@ -21,7 +21,7 @@
           </n-button>
 
           <router-link :to="{ name: 'save-type', params: { id: t.id } }"
-            >Tipos</router-link
+            class="ml-2" >Tipos</router-link
           >
         </td>
       </tr>

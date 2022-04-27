@@ -24,7 +24,7 @@
           </n-button>
 
           <router-link :to="{ name: 'save-category', params: { id: c.id } }"
-            >Editar</router-link
+            class="ml-2" >Editar</router-link
           >
         </td>
       </tr>

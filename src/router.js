@@ -13,24 +13,40 @@ import SaveElement from "./pages/save/SaveElement"
 import BasePage from "./pages/BasePage"
 
 const routes = [
+
     {
         path: '/list',
         component: BasePage,
         children: [
             {
+                path: "",
+                redirect: () => {
+                    return { name: 'list-element' }
+                }
+            },
+            {
                 name: 'list-element',
                 path: 'element/:type?/:id?',
-                component: ListElement
+                components: {
+                    default: ListElement,
+                    title: { template: 'Listado de elementos' }
+                }
             },
             {
                 name: 'list-category',
                 path: 'category',
-                component: ListCategory
+                components: {
+                    default: ListCategory,
+                    title: { template: 'Listado de categorías' }
+                }
             },
             {
                 name: 'list-type',
                 path: 'type',
-                component: ListType
+                components: {
+                    default: ListType,
+                    title: { template: 'Listado de tipos' }
+                }
             }
         ]
     },
@@ -41,7 +57,11 @@ const routes = [
             {
                 name: 'detail-element',
                 path: 'element/:slug',
-                component: DetailElement
+
+                components: {
+                    default: DetailElement,
+                    title: { template: 'Detalle' }
+                }
             }
         ]
 
@@ -53,7 +73,10 @@ const routes = [
             {
                 name: 'save-category',
                 path: 'category/:id?',
-                component: SaveCategory
+                components: {
+                    default: SaveCategory,
+                    title: { template: 'Listado de categorías' }
+                }
             }
         ]
     },
@@ -64,7 +87,10 @@ const routes = [
             {
                 name: 'save-type',
                 path: 'type/:id?',
-                component: SaveType
+                components: {
+                    default: SaveType,
+                    title: { template: 'Listado de categorías' }
+                }
             }
         ]
     },
@@ -75,7 +101,10 @@ const routes = [
             {
                 name: 'save-element',
                 path: 'element/:id?',
-                component: SaveElement
+                components: {
+                    default: SaveElement,
+                    title: { template: 'Listado de categorías' }
+                }
             }
         ]
     }
